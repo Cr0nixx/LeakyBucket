@@ -10,7 +10,7 @@
 namespace LeakyBucket\Storage;
 
 /**
- * StorageInterface
+ * StorageInterface.
  *
  * The interface for a datastorage used by LeakyBucket.
  */

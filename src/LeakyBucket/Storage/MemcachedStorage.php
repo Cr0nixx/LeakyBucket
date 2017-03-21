@@ -17,7 +17,7 @@ namespace LeakyBucket\Storage;
 class MemcachedStorage implements StorageInterface
 {
     /**
-     * An instance of the MemcachedClient
+     * An instance of the MemcachedClient.
      *
      * @var MemcachedClient
      */
@@ -34,7 +34,7 @@ class MemcachedStorage implements StorageInterface
             self::$mc = $mc;
         } elseif (!self::$mc) {
             self::$mc = new Memcached();
-			self::$mc->addServer("127.0.0.1", 11211);
+            self::$mc->addServer('127.0.0.1', 11211);
         }
     }
 
@@ -64,10 +64,11 @@ class MemcachedStorage implements StorageInterface
     public function exists($key)
     {
         self::$mc->get($key);
-		if (self::$mc->getResultCode() === Memcached::RES_NOTFOUND) {
-			return false;
-		}
-		return true;
+        if (self::$mc->getResultCode() === Memcached::RES_NOTFOUND) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

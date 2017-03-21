@@ -14,13 +14,13 @@ use LeakyBucket\Storage\MemcachedStorage;
 use LeakyBucket\Storage\StorageInterface;
 
 /**
- * LeakyBucketTest
+ * LeakyBucketTest.
  *
  * Tests all functionality in the LeakyBucket package.
  *
  * @author Jeroen Visser <jeroenvisser101@gmail.com>
  */
-class LeakyBucketTest extends \PHPUnit_Framework_TestCase
+class LeakyBucketMemcachedTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Class constructor.
@@ -33,7 +33,7 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
     protected function getCleanBucket(StorageInterface $storage = null, array $options = [])
     {
         $storage = $storage ?: new MemcachedStorage();
-        $bucket  = new LeakyBucket(
+        $bucket = new LeakyBucket(
             'leakybucket-test',
             $storage,
             $options
