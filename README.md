@@ -6,6 +6,10 @@ Leaky Bucket is an algorithm which works as follows:
 1. The bucket leaks at a constant rate.
 1. Overflows when full, will not add other drops to the bucket.
 
+## Install
+
+php composer.phar require "Cr0nixx/leakybucket"
+
 ## Usage
 
 ### Basic usage
