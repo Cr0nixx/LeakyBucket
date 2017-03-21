@@ -8,7 +8,7 @@ Leaky Bucket is an algorithm which works as follows:
 
 ## Install
 
-php composer.phar require "Cr0nixx/leakybucket"
+php composer.phar require "cr0nixx/leakybucket"
 
 ## Usage
 

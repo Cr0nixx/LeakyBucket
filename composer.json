@@ -1,5 +1,5 @@
 {
-    "name": "Cr0nixx/leakybucket",
+    "name": "cr0nixx/leakybucket",
     "type": "Library",
     "description": "An implementation of the Leaky Bucket algorithm.",
     "keywords": ["firewall", "throttling", "limits", "leakybucket"],
