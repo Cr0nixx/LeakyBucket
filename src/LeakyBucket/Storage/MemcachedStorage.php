@@ -33,7 +33,7 @@ class MemcachedStorage implements StorageInterface
         if ($mc) {
             self::$mc = $mc;
         } elseif (!self::$mc) {
-            self::$mc = new Memcached();
+            self::$mc = new \Memcached();
             self::$mc->addServer('127.0.0.1', 11211);
         }
     }
@@ -64,7 +64,7 @@ class MemcachedStorage implements StorageInterface
     public function exists($key)
     {
         self::$mc->get($key);
-        if (self::$mc->getResultCode() === Memcached::RES_NOTFOUND) {
+        if (self::$mc->getResultCode() === \Memcached::RES_NOTFOUND) {
             return false;
         }
 
