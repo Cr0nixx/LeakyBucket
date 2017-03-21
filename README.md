@@ -41,7 +41,13 @@ if ($bucket->isFull()) {
 
 ### For memcached use
 ``` php
+<?php
+
+use LeakyBucket\LeakyBucket;
 use LeakyBucket\Storage\MemcachedStorage;
+
+// Define which storage to use
+$storage = new MemcachedStorage();
 ```
 
 ### Other functionality
