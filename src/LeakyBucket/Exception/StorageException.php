@@ -10,7 +10,7 @@
 namespace LeakyBucket\Exception;
 
 /**
- * StorageException
+ * StorageException.
  *
  * Exception for when the storage did not work as expected.
  *

@@ -12,7 +12,7 @@ namespace LeakyBucket\Storage\Helpers;
 use Predis\Client;
 
 /**
- * RedisClient
+ * RedisClient.
  *
  * @method get($key)
  * @method exists($key)

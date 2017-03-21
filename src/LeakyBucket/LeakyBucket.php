@@ -58,7 +58,7 @@ class LeakyBucket
      */
     private static $defaults = [
         'capacity' => 10,
-        'leak'     => 0.33
+        'leak'     => 0.33,
     ];
 
     /**
@@ -77,11 +77,11 @@ class LeakyBucket
      */
     public function __construct($key, StorageInterface $storage, array $settings = [])
     {
-        $this->key     = $key;
+        $this->key = $key;
         $this->storage = $storage;
 
         // Make sure only existing settings can be set
-        $settings       = array_intersect_key($settings, self::$defaults);
+        $settings = array_intersect_key($settings, self::$defaults);
         $this->settings = array_merge(self::$defaults, $settings);
 
         $this->bucket = $this->get();
@@ -90,7 +90,7 @@ class LeakyBucket
         if (!isset($this->bucket['drops']) || !isset($this->bucket['time'])) {
             $this->bucket = [
                 'drops' => 0,
-                'time'  => microtime(true)
+                'time'  => microtime(true),
             ];
         }
     }
@@ -208,7 +208,7 @@ class LeakyBucket
     }
 
     /**
-     * Updates the bucket's timestamp
+     * Updates the bucket's timestamp.
      */
     public function touch()
     {
@@ -222,7 +222,7 @@ class LeakyBucket
      */
     public function isFull()
     {
-        return (ceil((float) $this->bucket['drops']) >= $this->settings['capacity']);
+        return ceil((float) $this->bucket['drops']) >= $this->settings['capacity'];
     }
 
     /**
@@ -272,14 +272,14 @@ class LeakyBucket
     public function reset()
     {
         try {
-            $this->storage->purge(static::LEAKY_BUCKET_KEY_PREFIX . $this->key . static::LEAKY_BUCKET_KEY_POSTFIX);
+            $this->storage->purge(static::LEAKY_BUCKET_KEY_PREFIX.$this->key.static::LEAKY_BUCKET_KEY_POSTFIX);
         } catch (Exception $ex) {
             throw new StorageException(sprintf('Could not save "%s" to storage provider.', $this->key));
         }
     }
 
     /**
-     * Sets the active bucket's value
+     * Sets the active bucket's value.
      *
      * @param array $bucket The bucket's contents
      * @param int   $ttl    The time to live for the bucket
@@ -289,23 +289,23 @@ class LeakyBucket
     private function set(array $bucket, $ttl = 0)
     {
         try {
-            $this->storage->store(static::LEAKY_BUCKET_KEY_PREFIX . $this->key . static::LEAKY_BUCKET_KEY_POSTFIX, $bucket, $ttl);
+            $this->storage->store(static::LEAKY_BUCKET_KEY_PREFIX.$this->key.static::LEAKY_BUCKET_KEY_POSTFIX, $bucket, $ttl);
         } catch (Exception $ex) {
             throw new StorageException(sprintf('Could not save "%s" to storage provider.', $this->key));
         }
     }
 
     /**
-     * Gets the active bucket's value
-     *
-     * @return array
+     * Gets the active bucket's value.
      *
      * @throws StorageException
+     *
+     * @return array
      */
     private function get()
     {
         try {
-            return $this->storage->fetch(static::LEAKY_BUCKET_KEY_PREFIX . $this->key . static::LEAKY_BUCKET_KEY_POSTFIX);
+            return $this->storage->fetch(static::LEAKY_BUCKET_KEY_PREFIX.$this->key.static::LEAKY_BUCKET_KEY_POSTFIX);
         } catch (Exception $ex) {
             throw new StorageException(sprintf('Could not save "%s" to storage provider.', $this->key));
         }

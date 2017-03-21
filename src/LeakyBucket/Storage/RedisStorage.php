@@ -19,7 +19,7 @@ use LeakyBucket\Storage\Helpers\RedisClient;
 class RedisStorage implements StorageInterface
 {
     /**
-     * An instance of the RedisClient
+     * An instance of the RedisClient.
      *
      * @var RedisClient
      */
