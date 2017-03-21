@@ -34,7 +34,7 @@ class MemcachedStorage implements StorageInterface
             self::$mc = $mc;
         } elseif (!self::$mc) {
             self::$mc = new Memcached();
-			self::$mc->addServer(127.0.0.1, 11211, 1);
+			self::$mc->addServer("127.0.0.1", 11211);
         }
     }
 

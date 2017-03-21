@@ -39,6 +39,11 @@ if ($bucket->isFull()) {
 // ...
 ```
 
+### For memcached use
+``` php
+use LeakyBucket\Storage\MemcachedStorage;
+```
+
 ### Other functionality
 You can also do great stuff with it through the methods that LeakyBucket provides.
 
