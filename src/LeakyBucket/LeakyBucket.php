@@ -100,7 +100,7 @@ class LeakyBucket
      *
      * @param int $drops Amount of drops that have to be added to the bucket
      */
-    public function fill($drops = 1)
+    public function fill($drops = 1, $save = true)
     {
         if (!$drops > 0) {
             throw new \InvalidArgumentException(
@@ -116,7 +116,7 @@ class LeakyBucket
         // Update the bucket
         $this->bucket['drops'] += $drops;
 
-        $this->overflow();
+        $this->overflow($save);
     }
 
     /**
@@ -247,10 +247,13 @@ class LeakyBucket
     /**
      * Removes the overflow if present.
      */
-    public function overflow()
+    public function overflow($save = true)
     {
         if ($this->bucket['drops'] > $this->settings['capacity']) {
             $this->bucket['drops'] = $this->settings['capacity'];
+        }
+        if ($save) {
+            $this->save();   
         }
     }
 
