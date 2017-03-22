@@ -247,7 +247,7 @@ class LeakyBucket
     /**
      * Removes the overflow if present.
      */
-    public function overflow($save = true)
+    public function overflow()
     {
         if ($this->bucket['drops'] > $this->settings['capacity']) {
             $this->bucket['drops'] = $this->settings['capacity'];
