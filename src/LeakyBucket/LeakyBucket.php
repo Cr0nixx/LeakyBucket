@@ -253,7 +253,7 @@ class LeakyBucket
             $this->bucket['drops'] = $this->settings['capacity'];
         }
         if ($save) {
-            $this->save();   
+            $this->save();
         }
     }
 
