@@ -1,5 +1,5 @@
 {
-    "name": "cr0nixx/leakybucket",
+    "name": "pskuza/leakybucket",
     "type": "Library",
     "description": "An implementation of the Leaky Bucket algorithm.",
     "keywords": ["firewall", "throttling", "limits", "leakybucket"],
