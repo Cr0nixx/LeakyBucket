@@ -1,4 +1,4 @@
-# LeakyBucket [![Build Status](https://travis-ci.org/Cr0nixx/LeakyBucket.svg?branch=master)](https://travis-ci.org/Cr0nixx/LeakyBucket)
+# LeakyBucket [![Build Status](https://travis-ci.org/pskuza/LeakyBucket.svg?branch=master)](https://travis-ci.org/Cr0nixx/LeakyBucket)
 Leaky Bucket is an algorithm which works as follows:
 
 1. There is a bucket.
